@@ -1,0 +1,16 @@
+*.h.ini
+*.c.ini
+*.cp
+*.asm
+*.mcl
+*.bmk
+*.brk
+*.cfg
+*.cof
+*.dbg
+*.dct
+*.dlt
+*.hex
+*.lst
+*.mcppi_callertable.txt
+*.user.dic
