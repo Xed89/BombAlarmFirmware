@@ -78,8 +78,8 @@ void display4seg4digit_output(display7seg4digit_t* d) {
   
   PORTB = display7seg_table[d->digit2];
   //Turn on second dot if this is an even second
-  if (d->digit1_dot)
-    PORTB &= 0b1111011;
+  //if (d->digit1_dot)
+  //  PORTB &= 0b1111011;
   RA3_bit = 0;
   delayL();
   RA3_bit = 1;
@@ -95,5 +95,15 @@ void display4seg4digit_output(display7seg4digit_t* d) {
   RA5_bit = 0;
   delayL();
   RA5_bit = 1;
+  delayH();
+
+  //Turn on dot separately because the display dims slightly if you turn on the dot together with the digit
+  PORTB = 0xff;
+  //Turn on second dot if this is an even second
+  if (d->digit1_dot)
+    PORTB &= 0b11111011;
+  RA3_bit = 0;
+  delayL();
+  RA3_bit = 1;
   delayH();
 }
